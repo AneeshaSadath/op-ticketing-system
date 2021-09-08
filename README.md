@@ -31,10 +31,29 @@ poetry run pre-commit install
 ## Verification
 You should be able to access the server at http://localhost:5000/
 
-## To run tests
+## You can run pytests in two ways:
+### 1. Inside the docker container 
 Please type the following commands in a new terminal to run all the tests.
 
 ```
 docker exec -it op-ticketing-system bash
+pytest -v
+```
+
+### 2. Directly from the terminal
+Inorder to run tests  directly from terminal, please make sure to make the following changes:
+1. Change lines 6,9 and 21 in config.py to,
+```
+"host": "localhost"  
+RABBITMQ_HOST = "localhost"
+"host": "localhost"
+```
+respectively.
+2. Change line 5 in tasks.py to ,
+```
+broker="amqp://guest:guest@localhost"
+```
+After making these two changes run the following command:
+```
 pytest -v
 ```

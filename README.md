@@ -49,6 +49,8 @@ RABBITMQ_HOST = "localhost"
 "host": "localhost"
 ```
 respectively.
+
+
 2. Change line 5 in tasks.py to ,
 ```
 broker="amqp://guest:guest@localhost"

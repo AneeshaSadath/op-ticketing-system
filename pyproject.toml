@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "op ticketing system"
+version = "0.1.0"
+description = ""
+authors = ["AneeshaSadath"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Flask = "^2.0.1"
+flask-mongoengine = "^1.0.0"
+mongoengine-goodjson = "^1.1.8"
+Flask-Cors = "^3.0.10"
+celery = "^5.1.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "5.2"
+flake8 = "^3.9.0"
+black = "^20.8b1"
+pre-commit = "^2.12.0"
+
+[tool.black]
+line-length = 79
+target-version = ['py36', 'py37', 'py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | tests/resources
+  | tests/docker
+)/
+'''
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

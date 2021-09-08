@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  my_rabbitmq:
+    image: rabbitmq:3-management
+    container_name: 'op-rabbitmq'
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  mongo:
+    image: mongo:latest
+    container_name: 'op-ticketing-mongo'
+    ports:
+      - "27017:27017"
+  backend:
+    build: ../op-ticketing-system
+    container_name: 'op-ticketing-system'
+    ports:
+      - "5000:5000"
+    depends_on:
+      - "mongo"
+      - "my_rabbitmq"
+    command: sh -c "dockerize -wait tcp://mongo:27017 -wait tcp://my_rabbitmq:5672 -timeout 60s -wait-retry-interval 10s /opt/app/docker-run.sh"

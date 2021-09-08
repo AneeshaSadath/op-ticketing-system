@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "241f541e-d7ee-4f1f-b7fb-10e794f04e97",
+		"name": "OP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "NewRegistration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\" : \"Aneesha\",\r\n    \"middle_name\" : \"s\",\r\n    \"last_name\" : \"Sadath\",\r\n    \"email\" : \"aishu0054@gmail.com\",\r\n    \"home_phone\" : \"832-610-9681\",\r\n    \"mobile_phone\" : \"832-610-9681\",\r\n    \"address_1\" : \"england\",\r\n    \"address_2\" : \"england\",\r\n    \"city\" : \"Newyork\",\r\n    \"state\" : \"Texas\",\r\n    \"zipcode\" : \"77568\",\r\n    \"marital_status\" : \"Single\",\r\n    \"gender\" : \"Female\",\r\n    \"dob\" : \"29/03/1998\",\r\n    \"age\" : 24\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/register",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPatient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/get_patient?Id=6135c1a671cc11af410f66a2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"get_patient"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "6135c1a671cc11af410f66a2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
